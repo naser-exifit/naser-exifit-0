@@ -67,10 +67,10 @@ const Events: React.FC = () => {
                   whileHover={{ scale: 1.02, y: -8 }}
                   className="group"
                 >
-                  <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-200">
+                  <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-200 min-h-[320px]">
                     <div className="lg:flex">
                       {/* Event Image */}
-                      <div className="lg:w-1/3 h-72 lg:h-auto relative overflow-hidden">
+                      <div className="lg:w-1/3 h-64 lg:h-80 relative overflow-hidden flex-shrink-0">
                         <img
                           src={event.image}
                           alt={event.title}
@@ -83,17 +83,18 @@ const Events: React.FC = () => {
                       </div>
 
                       {/* Event Content */}
-                      <div className="lg:w-2/3 p-6">
-                        <h3 className="text-xl lg:text-2xl font-black text-gray-800 mb-4 group-hover:text-purple-600 transition-colors">
+                      <div className="lg:w-2/3 p-6 flex flex-col justify-between min-h-0">
+                        <div className="flex-grow">
+                          <h3 className="text-xl lg:text-2xl font-black text-gray-800 mb-4 group-hover:text-purple-600 transition-colors line-clamp-2">
                           {event.title}
                         </h3>
                         
-                        <p className="text-gray-700 mb-6 leading-relaxed text-base font-semibold">
+                          <p className="text-gray-700 mb-6 leading-relaxed text-base font-semibold line-clamp-3">
                           {event.description}
                         </p>
 
                         {/* Event Details */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                           <div className="flex items-center space-x-3 space-x-reverse">
                             <Calendar className="w-5 h-5 text-purple-500" />
                             <div>
@@ -114,20 +115,21 @@ const Events: React.FC = () => {
                             <MapPin className="w-5 h-5 text-purple-500" />
                             <div>
                               <p className="font-black text-gray-800 text-sm">مکان</p>
-                              <p className="text-gray-700 font-semibold text-sm">{event.location}</p>
+                              <p className="text-gray-700 font-semibold text-sm line-clamp-1">{event.location}</p>
                             </div>
                           </div>
                         </div>
+                        </div>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
+                        <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 sm:space-x-reverse flex-shrink-0">
                           <motion.a
                             href={event.registrationUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05, y: -3 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center justify-center space-x-2 space-x-reverse bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white px-6 py-3 rounded-2xl font-black text-sm transition-all duration-200"
+                            className="flex items-center justify-center space-x-2 space-x-reverse bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white px-5 py-2.5 rounded-2xl font-black text-sm transition-all duration-200 whitespace-nowrap"
                           >
                             <Users className="w-5 h-5" />
                             <span>ثبت‌نام در رویداد</span>
@@ -138,7 +140,7 @@ const Events: React.FC = () => {
                             whileHover={{ scale: 1.05, y: -3 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setSelectedEvent(event.id)}
-                            className="flex items-center justify-center space-x-2 space-x-reverse bg-white/30 backdrop-blur-md border border-white/40 text-gray-700 hover:text-purple-600 px-6 py-3 rounded-2xl font-black text-sm transition-all duration-200"
+                            className="flex items-center justify-center space-x-2 space-x-reverse bg-white/30 backdrop-blur-md border border-white/40 text-gray-700 hover:text-purple-600 px-5 py-2.5 rounded-2xl font-black text-sm transition-all duration-200 whitespace-nowrap"
                           >
                             <span>اطلاعات کامل</span>
                           </motion.button>
