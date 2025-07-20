@@ -66,47 +66,47 @@ const Products: React.FC = () => {
                 <motion.div
                   key={product.id}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.01, y: -2 }}
+                  whileHover={{ scale: 1.02, y: -4 }}
                   transition={{ duration: 0.2 }}
                   className="group"
                 >
-                  <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 h-full flex flex-col">
+                  <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 h-[420px] flex flex-col">
                     {/* Product Image */}
-                    <div className="relative h-40 overflow-hidden flex-shrink-0">
+                    <div className="relative h-48 overflow-hidden flex-shrink-0">
                       <img
                         src={product.image}
                         alt={product.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                      <div className="absolute top-2 right-2 bg-gradient-to-r from-purple-500 to-emerald-500 text-white px-2 py-1 rounded-full text-xs font-black">
+                      <div className="absolute top-3 right-3 bg-gradient-to-r from-purple-500 to-emerald-500 text-white px-3 py-1 rounded-full text-xs font-black">
                         محصول {product.id}
                       </div>
                     </div>
 
                     {/* Product Content */}
-                    <div className="p-3 flex flex-col flex-grow">
-                      <h3 className="text-sm font-black text-gray-800 mb-2 group-hover:text-purple-600 transition-colors line-clamp-2 min-h-[2rem]">
+                    <div className="p-5 flex flex-col flex-grow">
+                      <h3 className="text-lg font-black text-gray-800 mb-3 group-hover:text-purple-600 transition-colors line-clamp-2 h-14 flex items-center">
                         {product.title}
                       </h3>
                       
-                      <p className="text-gray-700 mb-2 leading-relaxed font-semibold text-xs line-clamp-2 min-h-[2rem]">
+                      <p className="text-gray-700 mb-4 leading-relaxed font-semibold text-sm line-clamp-2 h-10 flex items-start">
                         {product.description}
                       </p>
 
                       {/* Features Preview */}
-                      <div className="mb-2 flex-grow">
+                      <div className="mb-4 h-16 flex items-start">
                         <div className="flex flex-wrap gap-1">
                           {product.features.slice(0, 2).map((feature, index) => (
                             <span
                               key={index}
-                              className="bg-gradient-to-r from-purple-100 to-emerald-100 text-gray-800 text-xs px-2 py-0.5 rounded-full font-bold"
+                              className="bg-gradient-to-r from-purple-100 to-emerald-100 text-gray-800 text-xs px-2 py-1 rounded-full font-bold"
                             >
                               {feature}
                             </span>
                           ))}
                           {product.features.length > 2 && (
-                            <span className="text-gray-700 text-xs px-2 py-0.5 font-bold">
+                            <span className="text-gray-700 text-xs px-2 py-1 font-bold">
                               +{product.features.length - 2} ویژگی دیگر
                             </span>
                           )}
@@ -115,10 +115,10 @@ const Products: React.FC = () => {
 
                       {/* Learn More Button */}
                       <motion.button
-                        whileHover={{ scale: 1.01 }}
+                        whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setSelectedProduct(product.id)}
-                        className="w-full bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white py-2 rounded-lg font-black text-xs flex items-center justify-center space-x-2 space-x-reverse transition-all duration-200 mt-auto"
+                        className="w-full bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white py-3 rounded-xl font-black text-sm flex items-center justify-center space-x-2 space-x-reverse transition-all duration-200 mt-auto"
                       >
                         <span>اطلاعات کامل</span>
                         <ArrowRight className="w-4 h-4" />
