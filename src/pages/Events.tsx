@@ -142,7 +142,6 @@ const Events: React.FC = () => {
                       </div>
                       </div>
                     </div>
-                  </div>
                 </motion.div>
               ))}
             </div>
