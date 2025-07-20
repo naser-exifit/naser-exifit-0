@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
   });
 
   useEffect(() => {
-    document.title = 'تماس با ما - مدیریت سلامت نقره‌ای';
+    document.title = 'مدیریت سلامت نقره‌ای';
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

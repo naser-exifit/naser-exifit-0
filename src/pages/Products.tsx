@@ -7,7 +7,7 @@ const Products: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
 
   useEffect(() => {
-    document.title = 'محصولات - مدیریت سلامت نقره‌ای';
+    document.title = 'مدیریت سلامت نقره‌ای';
   }, []);
 
   const containerVariants = {

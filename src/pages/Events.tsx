@@ -7,7 +7,7 @@ const Events: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = React.useState<number | null>(null);
 
   useEffect(() => {
-    document.title = 'رویدادها - مدیریت سلامت نقره‌ای';
+    document.title = 'مدیریت سلامت نقره‌ای';
   }, []);
 
   const containerVariants = {

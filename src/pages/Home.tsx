@@ -5,7 +5,7 @@ import FutureSection from '../components/Home/FutureSection';
 
 const Home: React.FC = () => {
   useEffect(() => {
-    document.title = 'مدیریت سلامت نقره‌ای - خانه';
+    document.title = 'مدیریت سلامت نقره‌ای';
   }, []);
 
   return (
