@@ -67,65 +67,69 @@ const Events: React.FC = () => {
                   whileHover={{ scale: 1.02, y: -8 }}
                   className="group"
                 >
-                  <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 h-[480px] flex flex-col">
-                    {/* Event Image */}
-                    <div className="relative h-48 overflow-hidden flex-shrink-0">
-                      <img
-                        src={event.image}
-                        alt={event.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute top-3 right-3 bg-gradient-to-r from-purple-500 to-emerald-500 text-white px-3 py-1 rounded-full text-xs font-black">
-                        رویداد {index + 1}
-                      </div>
-                    </div>
-
-                    {/* Event Content */}
-                    <div className="p-4 flex flex-col flex-grow min-h-0">
-                      <h3 className="text-lg font-black text-gray-800 mb-3 group-hover:text-purple-600 transition-colors line-clamp-2 h-14 flex items-center">
-                        {event.title}
-                      </h3>
-                      
-                      <p className="text-gray-700 mb-4 leading-relaxed font-semibold text-sm line-clamp-2 h-10 flex items-start">
-                        {event.description}
-                      </p>
-
-                      {/* Event Details */}
-                      <div className="mb-4 h-20 flex-shrink-0">
-                        <div className="grid grid-cols-1 gap-2">
-                          <div className="flex items-center space-x-2 space-x-reverse">
-                            <Calendar className="w-4 h-4 text-purple-500 flex-shrink-0" />
-                            <span className="text-gray-800 font-bold text-xs">تاریخ:</span>
-                            <span className="text-gray-700 font-semibold text-xs">{event.date}</span>
-                          </div>
-                          
-                          <div className="flex items-center space-x-2 space-x-reverse">
-                            <Clock className="w-4 h-4 text-purple-500 flex-shrink-0" />
-                            <span className="text-gray-800 font-bold text-xs">زمان:</span>
-                            <span className="text-gray-700 font-semibold text-xs">{event.time}</span>
-                          </div>
-                          
-                          <div className="flex items-center space-x-2 space-x-reverse">
-                            <MapPin className="w-4 h-4 text-purple-500 flex-shrink-0" />
-                            <span className="text-gray-800 font-bold text-xs">مکان:</span>
-                            <span className="text-gray-700 font-semibold text-xs line-clamp-1">{event.location}</span>
-                          </div>
+                  <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-200">
+                    <div className="lg:flex">
+                      {/* Event Image */}
+                      <div className="lg:w-1/3 h-72 lg:h-auto relative overflow-hidden">
+                        <img
+                          src={event.image}
+                          alt={event.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="absolute top-6 left-6 bg-gradient-to-r from-purple-500 to-emerald-500 text-white px-4 py-2 rounded-full font-black">
+                          رویداد {index + 1}
                         </div>
                       </div>
 
-                      {/* Action Buttons */}
-                      <div className="mt-auto pt-2">
-                        <div className="flex flex-col space-y-2">
+                      {/* Event Content */}
+                      <div className="lg:w-2/3 p-6">
+                        <h3 className="text-xl lg:text-2xl font-black text-gray-800 mb-4 group-hover:text-purple-600 transition-colors">
+                          {event.title}
+                        </h3>
+                        
+                        <p className="text-gray-700 mb-6 leading-relaxed text-base font-semibold">
+                          {event.description}
+                        </p>
+
+                        {/* Event Details */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                          <div className="flex items-center space-x-3 space-x-reverse">
+                            <Calendar className="w-5 h-5 text-purple-500" />
+                            <div>
+                              <p className="font-black text-gray-800 text-sm">تاریخ</p>
+                              <p className="text-gray-700 font-semibold text-sm">{event.date}</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center space-x-3 space-x-reverse">
+                            <Clock className="w-5 h-5 text-purple-500" />
+                            <div>
+                              <p className="font-black text-gray-800 text-sm">زمان</p>
+                              <p className="text-gray-700 font-semibold text-sm">{event.time}</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center space-x-3 space-x-reverse">
+                            <MapPin className="w-5 h-5 text-purple-500" />
+                            <div>
+                              <p className="font-black text-gray-800 text-sm">مکان</p>
+                              <p className="text-gray-700 font-semibold text-sm">{event.location}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
                           <motion.a
                             href={event.registrationUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05, y: -3 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center justify-center space-x-2 space-x-reverse bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white px-4 py-2.5 rounded-xl font-black text-xs transition-all duration-200"
+                            className="flex items-center justify-center space-x-2 space-x-reverse bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white px-6 py-3 rounded-2xl font-black text-sm transition-all duration-200"
                           >
-                            <Users className="w-4 h-4" />
+                            <Users className="w-5 h-5" />
                             <span>ثبت‌نام در رویداد</span>
                             <ExternalLink className="w-4 h-4" />
                           </motion.a>
@@ -134,14 +138,14 @@ const Events: React.FC = () => {
                             whileHover={{ scale: 1.05, y: -3 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setSelectedEvent(event.id)}
-                            className="flex items-center justify-center space-x-2 space-x-reverse bg-white/30 backdrop-blur-md border border-white/40 text-gray-700 hover:text-purple-600 px-4 py-2.5 rounded-xl font-black text-xs transition-all duration-200"
+                            className="flex items-center justify-center space-x-2 space-x-reverse bg-white/30 backdrop-blur-md border border-white/40 text-gray-700 hover:text-purple-600 px-6 py-3 rounded-2xl font-black text-sm transition-all duration-200"
                           >
                             <span>اطلاعات کامل</span>
                           </motion.button>
                         </div>
                       </div>
-                      </div>
                     </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -149,19 +153,19 @@ const Events: React.FC = () => {
             {/* Future Events Note */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 text-center"
+              className="mt-16 text-center"
             >
-              <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl p-6 max-w-2xl mx-auto">
-                <h3 className="text-lg font-black text-gray-800 mb-4">
+              <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl p-6 max-w-2xl mx-auto">
+                <h3 className="text-xl font-black text-gray-800 mb-4">
                   رویدادهای بیشتر در راه است
                 </h3>
-                <p className="text-gray-700 mb-6 leading-relaxed font-semibold text-sm">
+                <p className="text-gray-700 mb-6 leading-relaxed font-semibold text-base">
                   برای اطلاع از جدیدترین رویدادها و برنامه‌های آموزشی، در خبرنامه ما عضو شوید
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white px-6 py-3 rounded-xl font-black text-sm transition-all duration-200"
+                  className="bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white px-8 py-3 rounded-2xl font-black text-base transition-all duration-200"
                 >
                   عضویت در خبرنامه
                 </motion.button>
