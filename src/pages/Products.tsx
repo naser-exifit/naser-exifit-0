@@ -70,9 +70,9 @@ const Products: React.FC = () => {
                   transition={{ duration: 0.2 }}
                   className="group"
                 >
-                  <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 h-[420px] flex flex-col">
+                  <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 h-[440px] flex flex-col">
                     {/* Product Image */}
-                    <div className="relative h-48 overflow-hidden flex-shrink-0">
+                    <div className="relative h-44 overflow-hidden flex-shrink-0">
                       <img
                         src={product.image}
                         alt={product.title}
@@ -85,28 +85,28 @@ const Products: React.FC = () => {
                     </div>
 
                     {/* Product Content */}
-                    <div className="p-5 flex flex-col flex-grow">
-                      <h3 className="text-lg font-black text-gray-800 mb-3 group-hover:text-purple-600 transition-colors line-clamp-2 h-14 flex items-center">
+                    <div className="p-4 flex flex-col flex-grow min-h-0">
+                      <h3 className="text-base font-black text-gray-800 mb-2 group-hover:text-purple-600 transition-colors line-clamp-2 h-12 flex items-center">
                         {product.title}
                       </h3>
                       
-                      <p className="text-gray-700 mb-4 leading-relaxed font-semibold text-sm line-clamp-2 h-10 flex items-start">
+                      <p className="text-gray-700 mb-3 leading-relaxed font-semibold text-sm line-clamp-2 h-10 flex items-start">
                         {product.description}
                       </p>
 
                       {/* Features Preview */}
-                      <div className="mb-4 h-16 flex items-start">
+                      <div className="mb-3 h-12 flex items-start flex-shrink-0">
                         <div className="flex flex-wrap gap-1">
                           {product.features.slice(0, 2).map((feature, index) => (
                             <span
                               key={index}
-                              className="bg-gradient-to-r from-purple-100 to-emerald-100 text-gray-800 text-xs px-2 py-1 rounded-full font-bold"
+                              className="bg-gradient-to-r from-purple-100 to-emerald-100 text-gray-800 text-xs px-2 py-1 rounded-full font-bold whitespace-nowrap"
                             >
                               {feature}
                             </span>
                           ))}
                           {product.features.length > 2 && (
-                            <span className="text-gray-700 text-xs px-2 py-1 font-bold">
+                            <span className="text-gray-700 text-xs px-2 py-1 font-bold whitespace-nowrap">
                               +{product.features.length - 2} ویژگی دیگر
                             </span>
                           )}
@@ -114,15 +114,17 @@ const Products: React.FC = () => {
                       </div>
 
                       {/* Learn More Button */}
+                      <div className="mt-auto pt-2">
                       <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setSelectedProduct(product.id)}
-                        className="w-full bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white py-3 rounded-xl font-black text-sm flex items-center justify-center space-x-2 space-x-reverse transition-all duration-200 mt-auto"
+                          className="w-full bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white py-2.5 rounded-xl font-black text-sm flex items-center justify-center space-x-2 space-x-reverse transition-all duration-200"
                       >
                         <span>اطلاعات کامل</span>
                         <ArrowRight className="w-4 h-4" />
                       </motion.button>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
